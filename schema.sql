@@ -30,7 +30,7 @@ CREATE IF NOT EXISTS orders (
 
 CREATE IF NOT EXISTS order_products (
     order INTEGER NOT NULL REFERENCES orders.id ON DELETE CASCADE,
-    product INTEGER NOT NULL REFERENCES products.id ON DELETE RESTRICT,
+    product INTEGER NOT NULL REFERENCES products.id ON DELETE CASCADE,
     price INTEGER NOT NULL CHECK (price >= 0),
     quantity INTEGER NOT NULL CHECK (quantity > 0)
 );
