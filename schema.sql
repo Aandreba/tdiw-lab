@@ -34,3 +34,5 @@ CREATE TABLE IF NOT EXISTS order_products (
     price INTEGER NOT NULL CHECK (price >= 0),
     quantity INTEGER NOT NULL CHECK (quantity > 0)
 );
+
+ALTER TABLE order_products ADD PRIMARY KEY (order_id, product_id);
