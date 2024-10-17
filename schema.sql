@@ -29,8 +29,8 @@ CREATE TABLE IF NOT EXISTS orders (
 );
 
 CREATE TABLE IF NOT EXISTS order_products (
-    order INTEGER NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
-    product INTEGER NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+    order_id INTEGER NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+    product_id INTEGER NOT NULL REFERENCES products(id) ON DELETE CASCADE,
     price INTEGER NOT NULL CHECK (price >= 0),
     quantity INTEGER NOT NULL CHECK (quantity > 0)
 );
