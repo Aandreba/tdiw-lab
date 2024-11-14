@@ -1,12 +1,19 @@
 <?php
 
-function getDatabaseConnection(): PgSql\Connection|null {
-    $HOST = "deic-docencia.uab.cat";
-    $USER = "tidw-j7";
-    $DATABASE = "tidw-j7";
-    $PASSWORD = $_ENV['POSTGRES_PASSWORD'];
-    return pg_connect("host=$HOST user=$USER password=$PASSWORD dbname=$DATABASE") ?? null;
-}
+// Cloud
+// $host ??= "deic-docencia.uab.cat";
+// $user ??= "tidw-j7";
+// $database ??= "tidw-j7";
+// $password ??= $_ENV['POSTGRES_PASSWORD'];
+// $port = 5432;
 
-?>
+// Docker Compose
+$host = "postgres";
+$user = "myuser";
+$database = "mydb";
+$password = "mypassword";
+$port = 5432;
 
+$conn = pg_connect("host=$host user=$user password=$password dbname=$database port=$port");
+unset($host, $user, $database, $password, $port);
+if (!$conn) throw new Exception("Failed to connect to database");
