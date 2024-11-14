@@ -15,6 +15,5 @@ $password = "mypassword";
 $port = 5432;
 
 $conn = pg_connect("host=$host user=$user password=$password dbname=$database port=$port");
+unset($host, $user, $database, $password, $port);
 if (!$conn) throw new Exception("Failed to connect to database");
-
-unset($host, $user, $database, $password);
