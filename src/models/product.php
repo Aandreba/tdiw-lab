@@ -11,11 +11,11 @@ class Product {
     public int $price;
     public int $category_id;
 
-    static function FetchAll(string $nameLike, int $limit, int $offset) {
+    static function FetchAll(string $nameLike, ?int $categoryId, int $limit, int $offset) {
         $result = pg_query_params(
             getConnection(),
-            "SELECT * FROM products WHERE LOWER(name) LIKE concat('%', LOWER($1::text), '%') ORDER BY name ASC, id DESC LIMIT $2 OFFSET $3",
-            [$nameLike, $limit, $offset]
+            "SELECT * FROM products WHERE ($2::int IS NULL OR category_id = $2) AND LOWER(name) LIKE concat('%', LOWER($1::text), '%') ORDER BY name ASC, id DESC LIMIT $3 OFFSET $4",
+            [$nameLike, $categoryId, $limit, $offset]
         );
 
         if (!$result) throw new Exception("Unexpected error fetching products");

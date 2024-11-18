@@ -1,12 +1,16 @@
-<?php
+<link rel="stylesheet" href="/assets/categories.css">
 
-require_once __DIR__ . '/../models/category.php';
-
-?>
-
-<ul>
+<div class="categories">
     <?php foreach ($categories as $category): ?>
-        <?php $category = $category instanceof Category ? $category : Category::fromArray($category); ?>
-        <li><a href="/products?category=<?= $category->id ?>"><?= $category->name ?></a></li>
+        <div class="category">
+            <img src="/<?= $category->img ?>">
+            <span><?= $category->name ?></span>
+        </div>
     <?php endforeach; ?>
-</ul>
+</div>
+
+<script>
+    function onClickCategory(categoryId) {
+        window.location.href = `/?at=products&category=${categoryId}`;
+    }
+</script>

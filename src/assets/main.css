@@ -11,6 +11,8 @@ body {
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 2rem);
 }
 
 a {
@@ -28,14 +30,19 @@ ul {
     list-style: none;
 }
 
-.icon {
-    font-family: 'LucideIcons';
+main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Navbar */
 nav {
     display: flex;
     align-items: center;
+    padding-bottom: 1rem;
 }
 
 nav.landscape-navbar {

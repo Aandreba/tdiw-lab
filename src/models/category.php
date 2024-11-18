@@ -16,7 +16,7 @@ class Category {
         }
     }
 
-    static function FetchById(int $id) {
+    static function Fetch(int $id): ?Category {
         $result = pg_query_params(getConnection(), "SELECT * FROM categories WHERE id = $1", [$id]);
         if (!$result) throw new Exception("Unexpected error fetching category");
         $row = pg_fetch_assoc($result);
@@ -24,7 +24,7 @@ class Category {
         return Category::fromArray($row);
     }
 
-    static function fromArray(array $category) {
+    private static function fromArray(array $category): Category {
         $c = new Category();
         $c->id = $category['id'];
         $c->name = $category['name'];
