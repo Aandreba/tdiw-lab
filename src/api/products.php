@@ -2,9 +2,9 @@
 
 require_once __DIR__ . '/../models/product.php';
 
-$nameLike = $_GET['name'] ?? "";
+$nameLike = isset($_GET['name']) ? $_GET['name'] : "";
 $pagination = GetPagination();
-$products = Product::FetchAll($nameLike, $pagination['limit'], $pagination['offset']);
+$products = iterator_to_array(Product::FetchAll($nameLike, $pagination['limit'], $pagination['offset']));
 
 header('Content-Type: application/json');
-echo json_encode(iterator_to_array($products));
+echo json_encode($products);

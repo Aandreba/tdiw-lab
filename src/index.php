@@ -1,12 +1,12 @@
 <?php
 
 
-switch ($_GET['at']) {
+switch (isset($_GET['at']) ? $_GET['at'] : null) {
     case "categories":
-        require __DIR__ . '/controllers/api/categories.php';
+        require __DIR__ . '/controllers/categories.php';
         break;
     case "products":
-        require __DIR__ . '/controllers/api/products.php';
+        require __DIR__ . '/controllers/products.php';
         break;
     default:
         http_response_code(404);
