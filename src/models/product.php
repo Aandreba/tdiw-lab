@@ -24,6 +24,14 @@ class Product {
         }
     }
 
+    static function Fetch(int $id): ?Product {
+        $result = pg_query_params(getConnection(), "SELECT * FROM products WHERE id = $1", [$id]);
+        if (!$result) throw new Exception("Unexpected error fetching product");
+        $row = pg_fetch_assoc($result);
+        if (!$row) return null;
+        return Product::fromArray($row);
+    }
+
     private static function fromArray(array $product): Product {
         $p = new Product();
         $p->id = $product['id'];

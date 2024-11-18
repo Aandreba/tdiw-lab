@@ -25,6 +25,9 @@ $page = isset($_GET['at']) ? $_GET['at'] : null;
             case "products":
                 require __DIR__ . '/controllers/products.php';
                 break;
+            case "product":
+                require __DIR__ . '/controllers/product.php';
+                break;
             default:
                 http_response_code(404);
                 echo "Not found";

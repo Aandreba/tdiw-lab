@@ -1,9 +1,8 @@
 <?php
 
 require_once __DIR__ . '/../models/category.php';
+require_once __DIR__ . '/../pagination.php';
 
-$page = intval(isset($_GET['page']) ? $_GET['page'] : 1);
-$pageSize = intval(isset($_GET['pageSize']) ? $_GET['pageSize'] : 10);
-
-$categories = Category::FetchAll($page, $pageSize);
+$page = GetPagination();
+$categories = Category::FetchAll($page['limit'], $page['offset']);
 require __DIR__ . '/../views/categoryList.php';
