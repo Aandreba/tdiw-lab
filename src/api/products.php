@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../../models/product.php';
+require_once __DIR__ . '/../models/product.php';
 
 $nameLike = $_GET['name'] ?? "";
 $pagination = GetPagination();
