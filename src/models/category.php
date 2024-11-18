@@ -8,11 +8,8 @@ class Category {
     public string $description;
     public string $img;
 
-    static function FetchAll(int $page = 1, int $pageSize = 10) {
-        $page = max(1, $page);
-        $pageSize = max(1, $pageSize);
-        $offset = ($page - 1) * $pageSize;
-        $result = pg_query_params(getConnection(), "SELECT * FROM categories LIMIT $1 OFFSET $2", [$pageSize, $offset]);
+    static function FetchAll(int $limit, int $offset) {
+        $result = pg_query_params(getConnection(), "SELECT * FROM categories LIMIT $1 OFFSET $2", [$limit, $offset]);
         foreach (pg_fetch_all($result) as $category) {
             yield Category::fromArray($category);
         }

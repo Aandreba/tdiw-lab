@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../connect.php';
+require_once __DIR__ . '/../pagination.php';
 
 class Product {
     public int $id;
@@ -10,17 +11,27 @@ class Product {
     public int $price;
     public int $category_id;
 
-    static function FetchByCategory(string $categoryName, int $page = 1, int $pageSize = 10) {
-        $page = max(1, $page);
-        $pageSize = max(1, $pageSize);
-        $offset = ($page - 1) * $pageSize;
+    static function FetchAll(string $nameLike = "", int $limit, int $offset) {
+        $result = pg_query_params(
+            getConnection(),
+            "SELECT * FROM products WHERE name LIKE concat('%', $1, '%') LIMIT $2 OFFSET $3",
+            [$nameLike, $limit, $offset]
+        );
 
+        if (!$result) throw new Exception("Unexpected error fetching products");
+        foreach (pg_fetch_all($result) as $product) {
+            yield Product::fromArray($product);
+        }
+    }
+
+    static function FetchByCategory(string $categoryName, int $limit, int $offset) {
         $result = pg_query_params(
             getConnection(),
             "SELECT * FROM products WHERE category_id = (SELECT id FROM categories WHERE name = $1) LIMIT $2 OFFSET $3",
-            [$categoryName, $pageSize, $offset]
+            [$categoryName, $limit, $offset]
         );
 
+        if (!$result) throw new Exception("Unexpected error fetching products");
         foreach (pg_fetch_all($result) as $product) {
             yield Product::fromArray($product);
         }
