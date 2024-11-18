@@ -31,13 +31,14 @@ export default class ProductSearchEngine extends EventTarget {
 
     /**
      * @param {string} name - The name of the product.
+     * @param {number | null} category - The category of the product.
      * @param {number | undefined} timeout - The timeout of the search in milliseconds.
      */
-    search(name = "", timeout = undefined) {
+    search(name = "", category = null, timeout = undefined) {
         this.#abort.abort();
         this.#abort = new AbortController();
         const self = this;
-        fetchProducts(name, AbortSignal.any([this.#abort.signal, AbortSignal.timeout(timeout ?? this.timeout)]))
+        fetchProducts(name, category, AbortSignal.any([this.#abort.signal, AbortSignal.timeout(timeout ?? this.timeout)]))
             .then(products => self.dispatchEvent(new CustomEvent("searchresults", {
                 detail: products
             })));
@@ -47,15 +48,17 @@ export default class ProductSearchEngine extends EventTarget {
 /**
  * Fetches products from the API.
  * @param {string} name - The name of the product.
- * @param {AbortSignal} signal - The abort signal.
+ * @param {number | null} category - The category of the product.
+ * @param {AbortSignal | undefined} signal - The abort signal.
  * @param {number} page - The page number.
  * @param {number} pageSize - The page size.
  * @returns {Promise<Array<Product>>} The products.
  */
-async function fetchProducts(name = "", signal = undefined, page = 1, pageSize = 10) {
+async function fetchProducts(name = "", category = null, signal = undefined, page = 1, pageSize = 10) {
     const url = new URL(`/api/products.php`, window.location.origin);
     url.protocol = "http";
     url.searchParams.set("name", name);
+    if (category !== null) url.searchParams.set("category", category);
     url.searchParams.set("page", page);
     url.searchParams.set("pageSize", pageSize);
 

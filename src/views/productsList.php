@@ -1,10 +1,6 @@
-<?php
-$uuid = "aa";
-?>
-
 <link rel="stylesheet" href="/assets/products.css">
 
-<div id="<?php echo $uuid; ?>" class="products">
+<div class="products">
     <input type="text" id="search-input" placeholder="Search for a product">
     <div id="products-list">
         <span>Loading...</span>
@@ -12,13 +8,13 @@ $uuid = "aa";
 </div>
 
 <script type="module">
-    import ProductSearchEngine from "./assets/products.js";
+    import ProductSearchEngine from "/assets/products.js";
 
-    const productsList = document.querySelector("#<?php echo $uuid; ?> #products-list");
-    const searchInput = document.querySelector("#<?php echo $uuid; ?> #search-input");
+    const productsList = document.querySelector(".products #products-list");
+    const searchInput = document.querySelector(".products #search-input");
     const searchEngine = new ProductSearchEngine(searchInput.value);
 
-    searchInput.addEventListener("change", () => searchEngine.search(searchInput.value));
+    searchInput.addEventListener("change", () => searchEngine.search(searchInput.value, <?= $category ?? "null" ?>));
     searchEngine.addEventListener("searchresults", ({
         detail
     }) => {

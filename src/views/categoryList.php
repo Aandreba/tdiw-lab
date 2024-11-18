@@ -2,7 +2,7 @@
 
 <div class="categories">
     <?php foreach ($categories as $category): ?>
-        <div class="category">
+        <div class="category" onclick="onClickCategory(<?= $category->id ?>)">
             <img src="/<?= $category->img ?>">
             <span><?= $category->name ?></span>
         </div>
@@ -11,6 +11,8 @@
 
 <script>
     function onClickCategory(categoryId) {
-        window.location.href = `/?at=products&category=${categoryId}`;
+        const url = new URL('?at=products', window.location.href);
+        url.searchParams.set('category', categoryId);
+        window.location = url;
     }
 </script>
