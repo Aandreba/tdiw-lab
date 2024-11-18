@@ -1,0 +1,47 @@
+{
+    "__langs__": [
+        "en",
+        "fr",
+        "es",
+        "de",
+        "it",
+        "nl",
+        "ca"
+    ],
+    "categories": {
+        "en": "Categories",
+        "fr": "Catégories",
+        "es": "Categorías",
+        "de": "Kategorien",
+        "it": "Categorie",
+        "nl": "Categorieën",
+        "ca": "Categories"
+    },
+    "products": {
+        "en": "Products",
+        "fr": "Produits",
+        "es": "Productos",
+        "de": "Produkte",
+        "it": "Prodotti",
+        "nl": "Producten",
+        "ca": "Productes"
+    },
+    "login": {
+        "en": "Login",
+        "fr": "Connexion",
+        "es": "Iniciar sesión",
+        "de": "Anmelden",
+        "it": "Accedi",
+        "nl": "Inloggen",
+        "ca": "Iniciar sessió"
+    },
+    "register": {
+        "en": "Register",
+        "fr": "S'inscrire",
+        "es": "Registrarse",
+        "de": "Registrieren",
+        "it": "Registrati",
+        "nl": "Registreren",
+        "ca": "Registrar-se"
+    }
+}

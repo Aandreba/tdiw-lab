@@ -1,0 +1,79 @@
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+.icon {
+    font-family: 'LucideIcons';
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav.landscape-navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    width: calc(100vw - 2rem);
+    height: fit-content;
+}
+
+nav.landscape-navbar #links {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+nav.landscape-navbar #auth {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+@media (orientation: landscape) {
+    nav.landscape-navbar {
+        display: flex;
+    }
+
+    nav.portrait-navbar {
+        display: none;
+    }
+}
+
+@media (orientation: portrait) {
+    nav.landscape-navbar {
+        display: none;
+    }
+
+    nav.portrait-navbar {
+        display: flex;
+    }
+}
