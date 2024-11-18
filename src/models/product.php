@@ -10,14 +10,15 @@ class Product {
     public int $price;
     public int $category_id;
 
-    static function byCategory(string $categoryName) {
-        $conn = getDatabaseConnection();
-        if (!$conn) throw new Exception("Failed to connect to database");
+    static function FetchByCategory(string $categoryName, int $page = 1, int $pageSize = 10) {
+        $page = max(1, $page);
+        $pageSize = max(1, $pageSize);
+        $offset = ($page - 1) * $pageSize;
 
         $result = pg_query_params(
-            $conn,
-            "SELECT * FROM products WHERE category_id = (SELECT id FROM categories WHERE name = $1)",
-            [$categoryName]
+            getConnection(),
+            "SELECT * FROM products WHERE category_id = (SELECT id FROM categories WHERE name = $1) LIMIT $2 OFFSET $3",
+            [$categoryName, $pageSize, $offset]
         );
 
         foreach (pg_fetch_all($result) as $product) {
