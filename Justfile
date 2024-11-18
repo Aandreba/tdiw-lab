@@ -11,3 +11,6 @@ down:
 
 migrate:
     docker compose exec -it postgres psql -d mydb -U myuser -f /migrations/schema.sql
+
+migrate-data:
+    docker compose exec -it postgres psql -d mydb -U myuser -f /migrations/data.sql
