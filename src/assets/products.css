@@ -1,1 +1,19 @@
+.products {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
 
+.products #products-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.products #products-list .product {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    justify-items: center;
+    cursor: pointer;
+}
