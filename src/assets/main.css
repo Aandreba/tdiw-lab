@@ -64,6 +64,10 @@ nav {
     gap: 1rem;
 }
 
+.portrait-navbar {
+    gap: 1rem;
+}
+
 .portrait-navbar #toggle-menu {
     height: 24px;
     width: 24px;
