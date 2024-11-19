@@ -1,12 +1,14 @@
 <?php
 require_once __DIR__ . '/i18n.php';
 $page = isset($_GET['at']) ? $_GET['at'] : null;
+session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +29,9 @@ $page = isset($_GET['at']) ? $_GET['at'] : null;
                 break;
             case "product":
                 require __DIR__ . '/controllers/product.php';
+                break;
+            case "signup":
+                require __DIR__ . '/controllers/signup.php';
                 break;
             default:
                 http_response_code(404);

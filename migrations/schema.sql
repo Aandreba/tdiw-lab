@@ -18,8 +18,7 @@ CREATE TABLE IF NOT EXISTS users (
     id SERIAL NOT NULL PRIMARY KEY,
     username TEXT NOT NULL UNIQUE,
     email TEXT NOT NULL UNIQUE,
-    password BYTEA NOT NULL,
-    salt BYTEA NOT NULL
+    password TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS orders (

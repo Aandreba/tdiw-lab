@@ -58,5 +58,15 @@
         "nl": "Registreren",
         "ca": "Registrar-se",
         "ar": "التسجيل"
+    },
+    "logout": {
+        "en": "Logout",
+        "fr": "Déconnexion",
+        "es": "Cerrar sesión",
+        "de": "Ausloggen",
+        "it": "Disconnetti",
+        "nl": "Uitloggen",
+        "ca": "Desconnectar",
+        "ar": "تسجيل الخروج"
     }
 }

@@ -20,13 +20,14 @@ export default class ProductSearchEngine extends EventTarget {
 
     /**
      * @param {string} name - The name of the product.
+     * @param {number | null} category - The category of the product.
      * @param {number} timeout - The default timeout of a search in milliseconds.
      */
-    constructor(name = "", timeout = 30_000) {
+    constructor(name = "", category = null, timeout = 30_000) {
         super();
         this.timeout = timeout;
         this.#abort = new AbortController();
-        this.search(name)
+        this.search(name, category)
     }
 
     /**

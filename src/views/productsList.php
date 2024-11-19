@@ -12,7 +12,7 @@
 
     const productsList = document.querySelector(".products #products-list");
     const searchInput = document.querySelector(".products #search-input");
-    const searchEngine = new ProductSearchEngine(searchInput.value);
+    const searchEngine = new ProductSearchEngine(searchInput.value, <?= $category ?? "null" ?>);
 
     searchInput.addEventListener("change", () => searchEngine.search(searchInput.value, <?= $category ?? "null" ?>));
     searchEngine.addEventListener("searchresults", ({

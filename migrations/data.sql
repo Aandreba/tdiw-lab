@@ -21,9 +21,9 @@ INSERT INTO products (name, description, img, price, category_id) VALUES
     ('Phone Ring Holder', 'Metal ring kickstand with car mount', '/images/products/ring-holder.jpg', 900, 5);
 
 -- Sample Users (passwords are hashed versions of "password123")
-INSERT INTO users (username, email, password, salt) VALUES
-    ('john_doe', 'john@example.com', decode('5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'hex'), decode('0123456789abcdef', 'hex')),
-    ('jane_smith', 'jane@example.com', decode('5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'hex'), decode('fedcba9876543210', 'hex'));
+INSERT INTO users (username, email, password) VALUES
+    ('john_doe', 'john@example.com', '$2y$10$vIJwRHrxYmSCxAbCjqicYu/5d8Jb5zGUe1EqrEB0UQhhyp8YgTA1C'),
+    ('jane_smith', 'jane@example.com', '$2y$10$2DNUY5pNs4GRf4Kw9dwrau7O8ncnzGL1mXfw/ngLz2K6rDe0dTM3G');
 
 -- Sample Orders
 INSERT INTO orders (user_id) VALUES
