@@ -1,0 +1,14 @@
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+.category {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    justify-items: center;
+    cursor: pointer;
+}
