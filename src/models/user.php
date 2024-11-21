@@ -2,12 +2,17 @@
 
 require_once __DIR__ . "/../connect.php";
 
-class User {
+class User
+{
     public int $id;
     public string $username;
     public string $email;
+    public string $address;
+    public string $city;
+    public string $zipCode;
 
-    static function SignIn(string $username, string $password): ?User {
+    static function SignIn(string $username, string $password): ?User
+    {
         $result = pg_query_params(
             getConnection(),
             "SELECT * FROM users WHERE username = $1",
@@ -21,19 +26,24 @@ class User {
         return User::fromArray($row);
     }
 
-    static function SignUp(string $username, string $email, string $password): User {
+    static function SignUp(string $username, string $email, string $password, string $address, string $city, string $zipCode): int
+    {
+        $email = filter_var($email, FILTER_VALIDATE_EMAIL);
         $password = password_hash($password, PASSWORD_DEFAULT);
+        $zipCode = filter_var($zipCode, FILTER_VALIDATE_REGEXP, "^/d{5}$");
+
         $result = pg_query_params(
             getConnection(),
-            "INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email",
-            [$username, $email, $password]
+            "INSERT INTO users (username, email, password, address, city, zip_code) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id",
+            [$username, $email, $password, $address, $city, $zipCode]
         );
 
         if (!$result) throw new Exception("Failed to sign up");
-        return pg_fetch_object($result, null, User::class) ?? throw new Exception("Failed to sign up");
+        return (pg_fetch_array($result) ?? throw new Exception("Failed to sign up"))["id"];
     }
 
-    private static function fromArray(array $row): User {
+    private static function fromArray(array $row): User
+    {
         $user = new User();
         $user->id = $row["id"];
         $user->username = $row["username"];
