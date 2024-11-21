@@ -12,13 +12,13 @@
         img.src = body.img;
 
         const name = document.createElement("h1");
-        name.innerHTML = body.name;
+        name.textContent = body.name;
 
         const description = document.createElement("p");
-        description.innerHTML = body.description;
+        description.textContent = body.description;
 
         const price = document.createElement("span");
-        price.innerHTML = MONEY_FORMAT.format(body.price / 100);
+        price.textContent = MONEY_FORMAT.format(body.price / 100);
 
         const info = document.createElement("div");
         info.append(name, price, description);
