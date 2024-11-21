@@ -8,11 +8,5 @@ if (!isset($_GET['id'])) {
 }
 
 $id = intval($_GET['id']);
-$product = Product::Fetch($id);
-
-if (!$product) {
-    http_response_code(404);
-    exit;
-}
 
 require __DIR__ . '/../views/product.php';
