@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/assets/signup.css">
+<link rel="stylesheet" href="assets/signup.css">
 
 <form action="/api/signup.php" method="post" class="signup">
     <input type="text" name="username" placeholder="Username" required>

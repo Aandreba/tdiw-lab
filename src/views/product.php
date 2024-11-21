@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/assets/product.css">
+<link rel="stylesheet" href="assets/product.css">
 
 <div class="product"></div>
 

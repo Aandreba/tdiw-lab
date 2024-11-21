@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/assets/categories.css">
+<link rel="stylesheet" href="assets/categories.css">
 
 <div class="categories">
     <?php foreach ($categories as $category): ?>
