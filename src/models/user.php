@@ -2,8 +2,7 @@
 
 require_once __DIR__ . "/../connect.php";
 
-class User
-{
+class User {
     public int $id;
     public string $username;
     public string $email;
@@ -11,8 +10,7 @@ class User
     public string $city;
     public string $zipCode;
 
-    static function SignIn(string $username, string $password): ?User
-    {
+    static function SignIn(string $username, string $password): ?User {
         $result = pg_query_params(
             getConnection(),
             "SELECT * FROM users WHERE username = $1",
@@ -26,11 +24,10 @@ class User
         return User::fromArray($row);
     }
 
-    static function SignUp(string $username, string $email, string $password, string $address, string $city, string $zipCode): int
-    {
+    static function SignUp(string $username, string $email, string $password, string $address, string $city, string $zipCode): int {
         $email = filter_var($email, FILTER_VALIDATE_EMAIL);
         $password = password_hash($password, PASSWORD_DEFAULT);
-        $zipCode = filter_var($zipCode, FILTER_VALIDATE_REGEXP, "^/d{5}$");
+        $zipCode = filter_var($zipCode, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => '/^\d{5}$/']]);
 
         $result = pg_query_params(
             getConnection(),
@@ -42,8 +39,7 @@ class User
         return (pg_fetch_array($result) ?? throw new Exception("Failed to sign up"))["id"];
     }
 
-    private static function fromArray(array $row): User
-    {
+    private static function fromArray(array $row): User {
         $user = new User();
         $user->id = $row["id"];
         $user->username = $row["username"];
