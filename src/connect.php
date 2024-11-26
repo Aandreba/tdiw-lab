@@ -1,10 +1,10 @@
 <?php
 
 // Cloud
-$host ??= "deic-docencia.uab.cat";
-$user ??= "tidw-j7";
-$database ??= "tidw-j7";
-$password ??= "tq6fSALU";
+$host = "deic-docencia.uab.cat";
+$user = "tidw-j7";
+$database = "tidw-j7";
+$password = "tq6fSALU";
 $port = 5432;
 
 // Docker Compose
@@ -18,8 +18,7 @@ $conn = pg_connect("host=$host user=$user password=$password dbname=$database po
 unset($host, $user, $database, $password, $port);
 if (!$conn) throw new Exception("Failed to connect to database");
 
-function getConnection(): PgSql\Connection
-{
+function getConnection(): PgSql\Connection {
     global $conn;
     return $conn;
 }
