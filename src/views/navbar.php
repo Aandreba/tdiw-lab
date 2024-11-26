@@ -36,21 +36,21 @@
         <div id="auth">
             <?php if (isset($_SESSION["user"])): ?>
                 <a href="?at=signout">
-                    <img src="/assets/icons/log-out.svg" alt="<?= t('logout') ?>">
+                    <img src="assets/icons/log-out.svg" alt="<?= t('logout') ?>">
                 </a>
             <?php else: ?>
                 <a href="?at=signin">
-                    <img src="/assets/icons/log-in.svg" alt="<?= t('login') ?>">
+                    <img src="assets/icons/log-in.svg" alt="<?= t('login') ?>">
                 </a>
                 <a href="?at=signup">
-                    <img src="/assets/icons/register.svg" alt="<?= t('register') ?>">
+                    <img src="assets/icons/register.svg" alt="<?= t('register') ?>">
                 </a>
             <?php endif; ?>
         </div>
     </nav>
 
     <button id="toggle-menu">
-        <img src="/assets/icons/menu.svg" alt="menu">
+        <img src="assets/icons/menu.svg" alt="menu">
     </button>
 
 </div>

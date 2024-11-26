@@ -8,7 +8,7 @@
 </div>
 
 <script type="module">
-    import ProductSearchEngine from "/assets/products.js";
+    import ProductSearchEngine from "assets/products.js";
 
     const productsList = document.querySelector(".products #products-list");
     const searchInput = document.querySelector(".products #search-input");
