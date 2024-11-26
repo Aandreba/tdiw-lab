@@ -4,10 +4,10 @@
 
 <script>
     const product = document.querySelector(".product");
-    const url = new URL(`/api/product.php`, window.location.href)
-    url.searchParams.set("id", <?= $id ?>);
+    const params = new URLSearchParams();
+    params.set("id", <?= $id ?>);
 
-    fetch(url).then(resp => resp.json()).then((body) => {
+    fetch(`${window.location.pathname}api/product.php?${params}`).then(resp => resp.json()).then((body) => {
         const img = document.createElement("img")
         img.src = body.img;
 
