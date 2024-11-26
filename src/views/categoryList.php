@@ -2,6 +2,7 @@
 
 <div class="categories">
     <?php foreach ($categories as $category): ?>
+        <?php if ($category instanceof Exception) throw $category; ?>
         <div class="category" onclick="onClickCategory(<?= $category->id ?>)">
             <img src="/<?= $category->img ?>">
             <span><?= $category->name ?></span>
