@@ -11,10 +11,8 @@ class Category {
     static function FetchAll(int $limit, int $offset) {
         $conn = getConnection();
         $result = pg_query_params($conn, "SELECT * FROM categories ORDER BY name ASC, id DESC LIMIT $1 OFFSET $2", [$limit, $offset]);
-        var_dump($result);
         if (!$result) yield new Exception("Unexpected error fetching categories: " . pg_last_error($conn));
         else foreach (pg_fetch_all($result) as $category) {
-            var_dump($category);
             yield Category::fromArray($category);
         }
     }
