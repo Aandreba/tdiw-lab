@@ -9,16 +9,18 @@ class Category {
     public string $img;
 
     static function FetchAll(int $limit, int $offset) {
-        $result = pg_query_params(getConnection(), "SELECT * FROM categories ORDER BY name ASC, id DESC LIMIT $1 OFFSET $2", [$limit, $offset]);
-        if (!$result) throw new Exception("Unexpected error fetching categories");
+        $conn = getConnection();
+        $result = pg_query_params($conn, "SELECT * FROM categories ORDER BY name ASC, id DESC LIMIT $1 OFFSET $2", [$limit, $offset]);
+        if (!$result) throw new Exception("Unexpected error fetching categories: " . pg_last_error($conn));
         foreach (pg_fetch_all($result) as $category) {
             yield Category::fromArray($category);
         }
     }
 
     static function Fetch(int $id): ?Category {
-        $result = pg_query_params(getConnection(), "SELECT * FROM categories WHERE id = $1", [$id]);
-        if (!$result) throw new Exception("Unexpected error fetching category");
+        $conn = getConnection();
+        $result = pg_query_params($conn, "SELECT * FROM categories WHERE id = $1", [$id]);
+        if (!$result) throw new Exception("Unexpected error fetching category: " . pg_last_error($conn));
         $row = pg_fetch_assoc($result);
         if (!$row) return null;
         return Category::fromArray($row);

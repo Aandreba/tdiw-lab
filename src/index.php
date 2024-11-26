@@ -47,6 +47,8 @@ try {
     </html>
 <?php
 } catch (Exception $e) {
+    echo "ERROR";
     http_response_code(500);
     echo $e->getMessage();
 }
+?>
