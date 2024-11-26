@@ -2,8 +2,8 @@
 
 // Cloud
 $host = "deic-docencia.uab.cat";
-$user = "tidw-j7";
-$database = "tidw-j7";
+$user = "tdiw-j7";
+$database = "tdiw-j7";
 $password = "tq6fSALU";
 $port = 5432;
 
