@@ -56,7 +56,7 @@ export default class ProductSearchEngine extends EventTarget {
  * @returns {Promise<Array<Product>>} The products.
  */
 async function fetchProducts(name = "", category = null, signal = undefined, page = 1, pageSize = 10) {
-    const url = new URL(`./api/products.php`, window.location.origin);
+    const url = new URL(`./api/products.php`, window.location.href);
     url.protocol = "http";
     url.searchParams.set("name", name);
     if (category !== null) url.searchParams.set("category", category);
