@@ -1,7 +1,8 @@
 <?php
 
 // Cloud
-$host = "deic-docencia.uab.cat";
+// $host = "deic-docencia.uab.cat";
+$host = "localhost"
 $user = "tdiw-j7";
 $database = "tdiw-j7";
 $password = "tq6fSALU";
