@@ -20,23 +20,28 @@ session_start();
     <?php require __DIR__ . '/views/navbar.php'; ?>
     <main>
         <?php
-        switch ($page) {
-            case "categories":
-                require __DIR__ . '/controllers/categories.php';
-                break;
-            case "products":
-                require __DIR__ . '/controllers/products.php';
-                break;
-            case "product":
-                require __DIR__ . '/controllers/product.php';
-                break;
-            case "signup":
-                require __DIR__ . '/controllers/signup.php';
-                break;
-            default:
-                http_response_code(404);
-                echo "Not found";
-                break;
+        try {
+            switch ($page) {
+                case "categories":
+                    require __DIR__ . '/controllers/categories.php';
+                    break;
+                case "products":
+                    require __DIR__ . '/controllers/products.php';
+                    break;
+                case "product":
+                    require __DIR__ . '/controllers/product.php';
+                    break;
+                case "signup":
+                    require __DIR__ . '/controllers/signup.php';
+                    break;
+                default:
+                    http_response_code(404);
+                    echo "Not found";
+                    break;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo $e->getMessage();
         }
         ?>
     </main>
