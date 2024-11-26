@@ -56,14 +56,16 @@ export default class ProductSearchEngine extends EventTarget {
  * @returns {Promise<Array<Product>>} The products.
  */
 async function fetchProducts(name = "", category = null, signal = undefined, page = 1, pageSize = 10) {
-    const url = new URL(`${window.location.pathname}/api/products.php`, window.location.origin);
-    url.protocol = "http";
-    url.searchParams.set("name", name);
-    if (category !== null) url.searchParams.set("category", category);
-    url.searchParams.set("page", page);
-    url.searchParams.set("pageSize", pageSize);
+    const url = new URL(`${window.location.pathname}/api/products.php`);
+    // url.protocol = "http";
 
-    const response = await fetch(url, {
+    const params = new URLSearchParams()
+    params.set("name", name);
+    if (category !== null) params.set("category", category);
+    params.set("page", page);
+    params.set("pageSize", pageSize);
+
+    const response = await fetch(`${window.location.pathname}/api/products.php?${params}`, {
         signal
     });
     return await response.json();
