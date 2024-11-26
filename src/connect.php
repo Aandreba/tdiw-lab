@@ -16,7 +16,6 @@ $port = 5432;
 
 $conn = pg_connect("host=$host user=$user password=$password dbname=$database port=$port connect_timeout=5");
 unset($host, $user, $database, $password, $port);
-if (!$conn) throw new Exception("Failed to connect to database: " . pg_last_error());
 
 function getConnection(): PgSql\Connection {
     global $conn;
