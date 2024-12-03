@@ -9,8 +9,8 @@
     </div>
     <div id="auth">
         <?php if (isset($_SESSION["user"])): ?>
-            <span class="user">
-                User
+            <div class="user">
+                <span class="usertag">User</span>
                 <ul class="userpopup">
                     <li>My Account</li>
                     <li>My orders</li>
@@ -18,16 +18,16 @@
                             <?= t('logout') ?>
                         </a></li>
                 </ul>
-            </span>
-        <?php else: ?>
-            <a href="?at=signin">
-                <?= t('login') ?>
-            </a>
-            <a href="?at=signup">
-                <?= t('register') ?>
-            </a>
-        <?php endif; ?>
-    </div>
+                </span>
+            <?php else: ?>
+                <a href="?at=signin">
+                    <?= t('login') ?>
+                </a>
+                <a href="?at=signup">
+                    <?= t('register') ?>
+                </a>
+            <?php endif; ?>
+            </div>
 </nav>
 
 <div class="portrait-navbar">
