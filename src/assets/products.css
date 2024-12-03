@@ -16,8 +16,15 @@
 
 .products #products-list .product {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
     gap: 1rem;
     justify-items: center;
     cursor: pointer;
+    height: fit-content;
+}
+
+.products #products-list .product img {
+    width: 100%;
+}
+.products #products-list .product span {
+    height: fit-content;
 }

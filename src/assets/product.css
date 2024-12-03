@@ -3,4 +3,9 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: center;
+    justify-items: center;
+}
+
+.product img {
+    max-width: min(100%, 500px);
 }

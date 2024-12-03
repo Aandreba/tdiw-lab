@@ -21,6 +21,7 @@
         price.textContent = MONEY_FORMAT.format(body.price / 100);
 
         const info = document.createElement("div");
+        info.classList.add("info");
         info.append(name, price, description);
 
         product.replaceChildren(img, info)
