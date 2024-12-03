@@ -9,9 +9,16 @@
     </div>
     <div id="auth">
         <?php if (isset($_SESSION["user"])): ?>
-            <a href="?at=signout">
-                <?= t('logout') ?>
-            </a>
+            <span class="user">
+                User
+                <ul class="userpopup">
+                    <li>My Account</li>
+                    <li>My orders</li>
+                    <li><a href="?at=signout">
+                            <?= t('logout') ?>
+                        </a></li>
+                </ul>
+            </span>
         <?php else: ?>
             <a href="?at=signin">
                 <?= t('login') ?>
