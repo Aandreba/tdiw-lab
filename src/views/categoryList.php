@@ -4,7 +4,7 @@
     <?php foreach ($categories as $category): ?>
         <?php if ($category instanceof Exception) throw $category; ?>
         <div class="category" onclick="onClickCategory(<?= $category->id ?>)">
-            <img src="/<?= $category->img ?>">
+        <img src="<?= $category->img ?>" style="width:100%;">
             <span><?= $category->name ?></span>
         </div>
     <?php endforeach; ?>
