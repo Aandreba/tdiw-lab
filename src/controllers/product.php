@@ -1,12 +1,14 @@
 <?php
 
-require __DIR__ . '/../models/product.php';
+require_once __DIR__ . '/../models/product.php';
 
-if (!isset($_GET['id'])) {
-    http_response_code(400);
+$id = $_GET['id'];
+$product = Product::Fetch($id);
+if (!$product) {
+    http_response_code(404);
+    echo 'Product not found';
     exit;
 }
 
-$id = intval($_GET['id']);
-
-require __DIR__ . '/../views/product.php';
+header('Content-Type: application/json');
+echo json_encode($product);

@@ -7,7 +7,7 @@
     const params = new URLSearchParams();
     params.set("id", <?= $id ?>);
 
-    fetch(`${window.location.pathname}api/product.php?${params}`).then(resp => resp.json()).then((body) => {
+    fetch(`${window.location.pathname}controllers/product.php?${params}`).then(resp => resp.json()).then((body) => {
         const img = document.createElement("img")
         img.src = body.img;
 

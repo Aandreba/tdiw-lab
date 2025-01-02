@@ -47,7 +47,7 @@ export default class ProductSearchEngine extends EventTarget {
 }
 
 /**
- * Fetches products from the API.
+ * Fetches products from the controllers.
  * @param {string} name - The name of the product.
  * @param {number | null} category - The category of the product.
  * @param {AbortSignal | undefined} signal - The abort signal.
@@ -62,7 +62,7 @@ async function fetchProducts(name = "", category = null, signal = undefined, pag
     params.set("page", page);
     params.set("pageSize", pageSize);
 
-    const response = await fetch(`${window.location.pathname}api/products.php?${params}`, {
+    const response = await fetch(`${window.location.pathname}controllers/products.php?${params}`, {
         signal
     });
     return await response.json();
