@@ -12,7 +12,7 @@ $id = intval($_GET['id']);
 <?php require __DIR__ . '/../views/head.php'; ?>
 <body>
 <?php
-    require __DIR__ . '/../views/navbar.php';
+    require __DIR__ . '/../controller/navbar.php';
     require __DIR__ . '/../views/product.php';
 ?>
 </body>
