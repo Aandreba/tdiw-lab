@@ -131,13 +131,9 @@ nav {
 footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    position: absolute;
-    bottom: 0;
-    left: 0;
     padding: 1rem;
     background-color: black;
     color: white;
-    width: calc(100vw - 2rem);
 }
 
 footer #cart-price {
@@ -165,6 +161,13 @@ footer #cart-count {
 @media (orientation: portrait) {
     body {
         flex-direction: row;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: calc(100vw - 2rem);
     }
 
     .landscape-navbar {

@@ -3,8 +3,6 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 2rem;
-    height: 100%;
-    width: 100%;
 }
 
 .products #products-list {
