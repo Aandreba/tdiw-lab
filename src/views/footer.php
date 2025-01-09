@@ -25,5 +25,6 @@
         cart_count.textContent = `Items: ${json["count"]}`;
     }
 
+    document.addEventListener("tdiw-refresh-footer", reloadCartInfo);
     reloadCartInfo();
 </script>

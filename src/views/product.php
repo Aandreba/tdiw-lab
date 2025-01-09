@@ -21,9 +21,37 @@
             const price = document.createElement("span");
             price.textContent = MONEY_FORMAT.format(body.price / 100);
 
+            const addQuantity = document.createElement("input");
+            addQuantity.type = "number"
+            addQuantity.min = "1"
+            addQuantity.valueAsNumber = 1
+
+            const addToCart = document.createElement("button");
+            addToCart.textContent = "Add to Cart";
+            addToCart.addEventListener("click", async () => {
+                addToCart.disabled = true
+                try {
+                    const resp = await fetch(`${window.location.pathname}controllers/addToCart.php`, {
+                        method: "post",
+                        headers: {
+                            "content-type": "application/x-www-form-urlencoded"
+                        },
+                        body: new URLSearchParams({
+                            item: body.id,
+                            count: addQuantity.valueAsNumber
+                        })
+                    });
+
+                    if (resp.ok)
+                        document.dispatchEvent(new Event("tdiw-refresh-footer"));
+                } finally {
+                    addToCart.disabled = false
+                }
+            })
+
             const info = document.createElement("div");
             info.classList.add("info");
-            info.append(name, price, description);
+            info.append(name, price, description, addQuantity, addToCart);
 
             product.replaceChildren(img, info)
         })

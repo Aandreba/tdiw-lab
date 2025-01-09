@@ -3,8 +3,8 @@
 $cart = array();
 if (isset($_SESSION["cart"])) {
     $cart = json_decode($_SESSION["cart"], true);
-    if (json_last_error() == JSON_ERROR_NONE && is_array($json)) {
-        foreach ($json as $elem) {
+    if (json_last_error() == JSON_ERROR_NONE && is_array($cart)) {
+        foreach ($cart as $elem) {
             if (!is_int($elem)) {
                 $cart = array();
                 break;
@@ -23,7 +23,7 @@ function addCartProduct(int $prodId, int $quantity = 1) {
 
     if (isset($cart[$prodId]))
         $cart[$prodId] += $quantity;
-    else 
+    else
         $cart[$prodId] = $quantity;
 
     if ($cart[$prodId] <= 0)
@@ -48,7 +48,5 @@ function removeCartProduct(int $prodId) {
 function clearCart() {
     global $cart;
     $cart = array();
-    unset($_SESSION["cart"]);    
+    unset($_SESSION["cart"]);
 }
-
-?>
