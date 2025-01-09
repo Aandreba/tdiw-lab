@@ -4,16 +4,24 @@
     <?php foreach ($categories as $category): ?>
         <?php if ($category instanceof Exception) throw $category; ?>
         <div class="category" onclick="onClickCategory(<?= $category->id ?>)">
-        <img src="<?= $category->img ?>" style="width:100%;">
+            <img src="<?= $category->img ?>" style="width:100%;">
             <span><?= $category->name ?></span>
         </div>
     <?php endforeach; ?>
 </div>
 
+<?php require_once __DIR__ . '/productsList.php' ?>
+
 <script>
+    const category_list = document.querySelector("div.categories");
+    const product_list = document.querySelector("div.products");
+    product_list.style.display = "none";
+    window.tdiw_category = null;
+
     function onClickCategory(categoryId) {
-        const url = new URL('?at=products', window.location.href);
-        url.searchParams.set('category', categoryId);
-        window.location = url;
+        window.tdiw_category = categoryId;
+        category_list.style.display = "none";
+        product_list.style.removeProperty("display");
+        product_list.dispatchEvent(new Event("tdiw-refresh"));
     }
 </script>

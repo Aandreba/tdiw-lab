@@ -7,14 +7,21 @@
     </div>
 </div>
 
+<?php require_once __DIR__ . '/product.php' ?>
+
 <script type="module">
     import ProductSearchEngine from "./assets/products.js";
 
+    const products = document.querySelector(".products");
     const productsList = document.querySelector(".products #products-list");
     const searchInput = document.querySelector(".products #search-input");
-    const searchEngine = new ProductSearchEngine(searchInput.value, <?= $category ?? "null" ?>);
+    const searchEngine = new ProductSearchEngine(searchInput.value, window.tdiw_category);
+    const product_info = document.querySelector("div.product-info");
+    product_info.style.display = "none";
+    window.tdiw_product_id = null;
 
-    searchInput.addEventListener("change", () => searchEngine.search(searchInput.value, <?= $category ?? "null" ?>));
+    products.addEventListener("tdiw-refresh", () => searchEngine.search(searchInput.value, window.tdiw_category));
+    searchInput.addEventListener("change", () => searchEngine.search(searchInput.value, window.tdiw_category));
     searchEngine.addEventListener("searchresults", ({
         detail
     }) => {
@@ -43,9 +50,10 @@
             div.appendChild(price);
 
             div.addEventListener("click", () => {
-                const url = new URL('?at=product', window.location.href);
-                url.searchParams.set('id', product.id);
-                window.location = url;
+                products.style.display = "none"
+                product_info.style.removeProperty("display");
+                window.tdiw_product_id = product.id;
+                product_info.dispatchEvent(new Event("tdiw-refresh"));
             });
 
             return div;

@@ -1,4 +1,4 @@
-.product {
+.product-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -6,6 +6,6 @@
     justify-items: center;
 }
 
-.product img {
+.product-info img {
     max-width: min(100%, 500px);
 }

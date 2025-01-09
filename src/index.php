@@ -8,12 +8,6 @@ try {
             case "categories":
                 require __DIR__ . '/resources/categories.php';
                 break;
-            case "products":
-                require __DIR__ . '/resources/products.php';
-                break;
-            case "product":
-                require __DIR__ . '/resources/product.php';
-                break;
             case "signup":
                 require __DIR__ . '/resources/signup.php';
                 break;
@@ -29,4 +23,3 @@ try {
     http_response_code(500);
     echo $e->getMessage();
 }
-?>
