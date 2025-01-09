@@ -1,0 +1,29 @@
+<footer>
+    <span id="cart-price"></span>
+    <span id="cart-count"></span>
+</footer>
+
+<script>
+    const footer = document.querySelector("footer");
+    const cart_price = footer.querySelector("#cart-price");
+    const cart_count = footer.querySelector("#cart-count");
+    const money_fmt = new Intl.NumberFormat(undefined, {
+        style: 'currency',
+        currency: 'EUR'
+    });
+    let aborter = null;
+
+    async function reloadCartInfo() {
+        const new_aborter = new AbortController();
+        if (aborter !== null) aborter.abort();
+        aborter = new_aborter;
+        const resp = await fetch(`${window.location.pathname}controllers/footer.php`, {
+            signal: aborter.signal
+        });
+        const json = await resp.json();
+        cart_price.textContent = `Total: ${money_fmt.format(json["price"] / 100)}`;
+        cart_count.textContent = `Items: ${json["count"]}`;
+    }
+
+    reloadCartInfo();
+</script>

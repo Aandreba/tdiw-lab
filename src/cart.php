@@ -50,4 +50,5 @@ function clearCart() {
     $cart = array();
     unset($_SESSION["cart"]);    
 }
+
 ?>

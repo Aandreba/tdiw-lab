@@ -18,7 +18,6 @@
                             <?= t('logout') ?>
                         </a></li>
                 </ul>
-                </span>
             <?php else: ?>
                 <a href="?at=signin">
                     <?= t('login') ?>
@@ -27,7 +26,7 @@
                     <?= t('register') ?>
                 </a>
             <?php endif; ?>
-            </div>
+    </div>
 </nav>
 
 <div class="portrait-navbar">
@@ -53,6 +52,7 @@
                     <img src="assets/icons/register.svg" alt="<?= t('register') ?>">
                 </a>
             <?php endif; ?>
+            <span>Carrito</span>
         </div>
     </nav>
 
