@@ -13,6 +13,10 @@
     <?php endforeach; ?>
 </ul>
 
+<? if (isset($_SESSION["user"])): ?>
+    <button>Submit</button>
+<? endif ?>
+
 <script>
     const invisible_form = document.createElement("form");
     invisible_form.style.display = "none";

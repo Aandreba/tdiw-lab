@@ -15,8 +15,8 @@ try {
             case "signup":
                 require __DIR__ . '/resources/signup.php';
                 break;
-            case "sigin":
-                require __DIR__. '/views/signup.php';
+            case "signin":
+                require __DIR__ . '/resources/signin.php';
                 break;
             default:
                 http_response_code(404);
