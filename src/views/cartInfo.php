@@ -20,6 +20,7 @@
     <?php endforeach; ?>
 </ul>
 
+<button onclick="clearCart()">Clear</button>
 <? if (isset($_SESSION["user"])): ?>
     <button onclick="submitCart()">Submit</button>
 <? endif ?>
@@ -52,6 +53,11 @@
 
     function submitCart() {
         if_action.value = "submit"
+        invisible_form.submit()
+    }
+
+    function clearCart() {
+        if_action.value = "clear"
         invisible_form.submit()
     }
 
