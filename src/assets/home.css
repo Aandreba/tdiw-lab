@@ -3,15 +3,23 @@
     margin-top: 20px;
 }
 
+.image-container {
+    position: relative; /* Necesario para que el botón se posicione relativo a este contenedor */
+    display: inline-block;
+}
+
 .homepage-image {
     width: 150%;
     max-width: 1800px;
-    margin: 0 auto;
     display: block;
 }
 
 .button-container {
-    margin-top: 20px;
+    position: absolute; /* Permite posicionar el botón sobre la imagen */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para que el centro del botón coincida con el centro de la imagen */
+    z-index: 10;
 }
 
 .btn {

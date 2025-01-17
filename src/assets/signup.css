@@ -8,7 +8,7 @@ body {
     margin: 0;
 }
 
-/* Contenedor del formulario */
+
 .signup {
     background-color: #ffffff;
     padding: 30px;
@@ -18,7 +18,7 @@ body {
     max-width: 400px;
 }
 
-/* Título del formulario */
+
 .signup h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -26,7 +26,7 @@ body {
     font-size: 24px;
 }
 
-/* Estilo de los campos de entrada */
+
 .signup input {
     width: 100%;
     padding: 10px;
@@ -37,7 +37,7 @@ body {
     font-size: 16px;
 }
 
-/* Efecto de enfoque en los campos de entrada */
+
 .signup input:focus {
     border-color: #2b3942;
     outline: none;
@@ -56,17 +56,16 @@ body {
     margin-top: 10px;
 }
 
-/* Cambio de color al pasar el ratón sobre el botón */
+
 .signup button:hover {
     background-color: #23282c;
 }
 
-/* Validación de los campos de texto */
+
 .signup input:invalid {
     border-color: red;
 }
 
-/* Opcional: Estilo del placeholder */
 .signup input::placeholder {
     color: #888;
 }
