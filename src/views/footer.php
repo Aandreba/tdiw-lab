@@ -7,10 +7,6 @@
     const footer = document.querySelector("footer");
     const cart_price = footer.querySelector("#cart-price");
     const cart_count = footer.querySelector("#cart-count");
-    const money_fmt = new Intl.NumberFormat(undefined, {
-        style: 'currency',
-        currency: 'EUR'
-    });
     let aborter = null;
 
     async function reloadCartInfo() {

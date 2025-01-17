@@ -9,6 +9,9 @@ try {
             case "categories":
                 require __DIR__ . '/resources/categories.php';
                 break;
+            case "cart":
+                require __DIR__ . '/resources/cart.php';
+                break;
             case "signup":
                 require __DIR__ . '/resources/signup.php';
                 break;
