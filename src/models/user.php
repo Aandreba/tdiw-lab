@@ -10,11 +10,11 @@ class User {
     public string $city;
     public string $zipCode;
 
-    static function SignIn(string $username, string $password): ?User {
+    static function SignIn(string $email, string $password): ?User {
         $result = pg_query_params(
             getConnection(),
-            "SELECT * FROM users WHERE username = $1",
-            [$username]
+            "SELECT * FROM users WHERE email = $1",
+            [$email]
         );
 
         if (!$result) throw new Exception("Failed to sign in");
