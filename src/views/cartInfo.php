@@ -14,7 +14,7 @@
 </ul>
 
 <? if (isset($_SESSION["user"])): ?>
-    <button>Submit</button>
+    <button onclick="submitCart()">Submit</button>
 <? endif ?>
 
 <script>
@@ -41,6 +41,11 @@
         if_id.valueAsNumber = id;
         if_count.valueAsNumber = (count_or_event instanceof HTMLInputElement) ? count_or_event.valueAsNumber : count_or_event;
         invisible_form.submit();
+    }
+
+    function submitCart() {
+        if_action.value = "submit"
+        invisible_form.submit()
     }
 
     for (const elem of document.querySelectorAll("#cartinfo span.price")) {
