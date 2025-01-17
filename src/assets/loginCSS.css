@@ -1,0 +1,17 @@
+.logIn {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input-wrapper {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-wrapper label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}

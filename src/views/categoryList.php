@@ -5,7 +5,7 @@
         <?php if ($category instanceof Exception) throw $category; ?>
         <div class="category" onclick="onClickCategory(<?= $category->id ?>)">
             <img src="<?= $category->img ?>" style="width:100%;">
-            <span><?= $category->name ?></span>
+            <span><?= htmlentities($category->name, ENT_QUOTES | ENT_HTML5, 'UTF-8') ?></span>
         </div>
     <?php endforeach; ?>
 </div>

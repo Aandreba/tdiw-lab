@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/i18n.php';
+require_once __DIR__ . '/connect.php';
 
 try {
     session_start();
@@ -10,6 +11,9 @@ try {
                 break;
             case "signup":
                 require __DIR__ . '/resources/signup.php';
+                break;
+            case "sigin":
+                require __DIR__. '/views/signup.php';
                 break;
             default:
                 http_response_code(404);
