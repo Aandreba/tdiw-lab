@@ -9,7 +9,7 @@
 
 <body>
     <h1>Log In</h1>
-    <form method="post" action="../controller/login.php" class="logIn">
+    <form action="/?at=signin" method="post" class="logIn">
         <div class="input-wrapper">
             <label for="login-email">Email:</label>
             <input type="email" name="email" required>
