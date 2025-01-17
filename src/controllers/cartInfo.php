@@ -16,14 +16,14 @@ if (isset($_POST["action"])) {
     }
 }
 
-$items = [];
+$cart_items = [];
 $i = 0;
 foreach (getCart() as $item => $count) {
     $j = $i;
     $i++;
     $prod = Product::Fetch($item);
     if ($prod == null) continue;
-    $items += [$j => [$prod, $count]];
+    $cart_items += [$j => [$prod, $count]];
 }
 
 include __DIR__ . '/../views/cartInfo.php';

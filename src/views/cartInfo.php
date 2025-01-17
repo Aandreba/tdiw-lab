@@ -1,19 +1,23 @@
 <ul id="cartinfo">
-    <? foreach ($items as [$item, $count]): ?>
+    <?php foreach ($cart_items as $entry): ?>
+        <?php 
+        $item = $entry[0]; 
+        $count = $entry[1]; 
+        ?>
         <li>
-            <span><?= $item->name ?></span>
-            <span class="price"><?= $item->price / 100 ?></span>
+            <span><?= htmlentities($item->name, ENT_QUOTES | ENT_HTML5, 'UTF-8') ?></span>
+            <span class="price"><?= number_format($item->price / 100, 2) ?></span>
             <input class="elem_count" type="number" min="1" value="<?= $count ?>" onchange="setCartProdCount(<?= $item->id ?>, this)" />
             <button class="remove_cart" onclick="setCartProdCount(<?= $item->id ?>, 0)">Remove</button>
         </li>
-    <? endforeach ?>
+    <?php endforeach; ?>
 </ul>
 
 <script>
     const invisible_form = document.createElement("form");
     invisible_form.style.display = "none";
     invisible_form.method = "post";
-    invisible_form.action = "/?at=cart";
+    invisible_form.action = "/lab/?at=cart";
 
     const if_action = document.createElement("input");
     if_action.type = "text";
