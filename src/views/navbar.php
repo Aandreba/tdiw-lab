@@ -3,8 +3,8 @@
         <a href="?at=categories">
             <?= t('categories') ?>
         </a>
-        <a href="?at=products">
-            <?= t('products') ?>
+        <a href="?at=cart">
+            Cart
         </a>
     </div>
     <div id="auth">
@@ -26,7 +26,7 @@
                     <?= t('register') ?>
                 </a>
             <?php endif; ?>
-    </div>
+            </div>
 </nav>
 
 <div class="portrait-navbar">
@@ -35,8 +35,8 @@
             <a href="?at=categories">
                 <?= t('categories') ?>
             </a>
-            <a href="?at=products">
-                <?= t('products') ?>
+            <a href="?at=cart">
+                Cart
             </a>
         </div>
         <div id="auth">
