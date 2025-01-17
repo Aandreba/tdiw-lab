@@ -1,9 +1,72 @@
-.signup {
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    justify-content: top;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-.signup input:user-invalid {
-    background-color: red;
+/* Contenedor del formulario */
+.signup {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Título del formulario */
+.signup h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Estilo de los campos de entrada */
+.signup input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Efecto de enfoque en los campos de entrada */
+.signup input:focus {
+    border-color: #2b3942;
+    outline: none;
+}
+
+/* Estilo del botón */
+.signup button {
+    background-color: #374046;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Cambio de color al pasar el ratón sobre el botón */
+.signup button:hover {
+    background-color: #23282c;
+}
+
+/* Validación de los campos de texto */
+.signup input:invalid {
+    border-color: red;
+}
+
+/* Opcional: Estilo del placeholder */
+.signup input::placeholder {
+    color: #888;
 }

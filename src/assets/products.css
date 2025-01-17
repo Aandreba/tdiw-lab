@@ -17,12 +17,36 @@
     gap: 1rem;
     justify-items: center;
     cursor: pointer;
-    height: fit-content;
+    height: 600px; 
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    margin-left: 20px; 
 }
 
 .products #products-list .product img {
     width: 100%;
+    height: 500px; 
+    object-fit: cover; 
+    border-radius: 8px;
 }
+
 .products #products-list .product span {
     height: fit-content;
+    text-align: center;
+    font-size: 14px;
+    color: #222020;
+    background-color: #9c9999; 
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif; /* Fuente más elegante */
+
+}
+
+.products #products-list .product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }

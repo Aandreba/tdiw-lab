@@ -1,10 +1,17 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="assets/navbarCss.css?v=1.0"> 
+</head>
+
 <nav class="landscape-navbar">
     <div id="links">
         <a href="?at=categories">
             <?= t('categories') ?>
         </a>
-        <a href="?at=cart">
-            Cart
+        <a href="?at=products">
+            <?= t('products') ?>
         </a>
     </div>
     <div id="auth">
@@ -14,9 +21,7 @@
                 <ul class="userpopup">
                     <li>My Account</li>
                     <li>My orders</li>
-                    <li><a href="?at=signout">
-                            <?= t('logout') ?>
-                        </a></li>
+                    <li><a href="?at=signout"><?= t('logout') ?></a></li>
                 </ul>
             <?php else: ?>
                 <a href="?at=signin">
@@ -26,7 +31,7 @@
                     <?= t('register') ?>
                 </a>
             <?php endif; ?>
-            </div>
+    </div>
 </nav>
 
 <div class="portrait-navbar">
@@ -35,8 +40,8 @@
             <a href="?at=categories">
                 <?= t('categories') ?>
             </a>
-            <a href="?at=cart">
-                Cart
+            <a href="?at=products">
+                <?= t('products') ?>
             </a>
         </div>
         <div id="auth">
@@ -59,15 +64,25 @@
     <button id="toggle-menu">
         <img src="assets/icons/menu.svg" alt="menu">
     </button>
-
 </div>
 
 <script>
-    const portrait = document.querySelector('.portrait-navbar');
-    const toggle = portrait.querySelector('#toggle-menu');
-    const menu = portrait.querySelector('#menu');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Para el menú desplegable en la versión landscape
+        const user = document.querySelector('.landscape-navbar .user');
+        if (user) {
+            user.addEventListener('click', () => {
+                user.classList.toggle('active'); // Mostrar o ocultar el desplegable
+            });
+        }
 
-    toggle.addEventListener('click', () => {
-        menu.classList.toggle('open');
+        // Menú en la versión portrait
+        const portrait = document.querySelector('.portrait-navbar');
+        const toggle = portrait.querySelector('#toggle-menu');
+        const menu = portrait.querySelector('#menu');
+
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('open'); // Abrir o cerrar el menú
+        });
     });
 </script>

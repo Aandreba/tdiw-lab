@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/signup.css">
+<link rel="stylesheet" href="assets/signup.css?v=1.0"> 
 
 <form action="controllers/signup.php" method="post" class="signup">
     <input type="text" name="username" placeholder="Username" required>

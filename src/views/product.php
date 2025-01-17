@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="assets/product.css">
-
+<link rel="stylesheet" href="assets/product.css?v=1.0">
 <div class="product-info"></div>
 
 <script>

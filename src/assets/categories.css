@@ -1,66 +1,65 @@
-/* Contenedor principal de categorías */
 .categories {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Espaciado entre categorías */
-    justify-content: center; /* Centrar las categorías horizontalmente */
+    gap: 30px;
+    justify-content: center;
     padding: 20px;
-    background-color: #f8f9fa; /* Color de fondo */
+    background-color: #f8f9fa;
 }
 
-/* Cada categoría */
 .category {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 150px; /* Ancho de cada categoría */
+    width: 300px;
+    height: 700px;
     text-align: center;
-    border: 1px solid #ddd; /* Borde gris claro */
-    border-radius: 10px; /* Bordes redondeados */
-    overflow: hidden; /* Para recortar contenido extra */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animaciones */
-    background-color: #fff; /* Fondo blanco */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
 }
 
-/* Imagen dentro de la categoría */
 .category img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover; /* Ajustar imágenes */
-}
-
-/* Nombre de la categoría */
-.category span {
-    padding: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #333; /* Color de texto */
-    background-color: #f1f1f1; /* Fondo del nombre */
     width: 100%;
-    box-sizing: border-box; /* Incluye padding en el ancho */
-    border-top: 1px solid #ddd; /* Línea de separación */
+    height: 80%;
+    object-fit: cover;
 }
 
-/* Efecto hover en categoría */
+.category span {
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background-color: #f1f1f1;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #ddd;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .category:hover {
-    transform: translateY(-5px); /* Elevar un poco */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Sombra más intensa */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilo para estado activo (opcional) */
 .category.active {
-    border-color: #007bff; /* Borde azul */
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Resplandor azul */
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
-/* Adaptabilidad para pantallas pequeñas */
 @media (max-width: 768px) {
     .categories {
-        gap: 15px;
+        gap: 20px;
     }
     .category {
-        width: 120px;
+        width: 200px;
+        height: 400px;
     }
 }

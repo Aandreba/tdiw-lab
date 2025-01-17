@@ -1,0 +1,30 @@
+.homepage-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.homepage-image {
+    width: 150%;
+    max-width: 1800px;
+    margin: 0 auto;
+    display: block;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #585e70;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #333442;
+}

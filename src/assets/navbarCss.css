@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    width: 100%;
+    height: 500px; 
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+.landscape-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: wrap; 
+}
+
+.landscape-navbar #links {
+    display: flex;
+}
+
+.landscape-navbar #auth {
+    display: flex;
+    align-items: center;
+}
+
+.landscape-navbar .user {
+    position: relative;
+    cursor: pointer;
+}
+
+.landscape-navbar .userpopup {
+    display: none; 
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    top: 25px;
+    right: 0;
+    list-style: none;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; 
+    width: 200px; 
+    max-height: 300px; 
+    overflow-y: auto; 
+}
+
+.landscape-navbar .user.active .userpopup {
+    display: block; 
+}
+
+.landscape-navbar .userpopup li {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.landscape-navbar .userpopup li:hover {
+    background-color: #f1f1f1;
+}
+
+
+.portrait-navbar {
+    display: none;
+    position: relative;
+    background-color: #f8f9fa;
+}
+
+.portrait-navbar #menu {
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.portrait-navbar #menu.open {
+    display: none;
+    border-top: 1px solid #ddd;
+}
+
+.portrait-navbar #menu a {
+    margin: 10px 0;
+}
+
+.portrait-navbar #toggle-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.portrait-navbar #toggle-menu img {
+    width: 25px;
+}
+
+@media (max-width: 768px) {
+    .landscape-navbar {
+        display: none;
+    }
+    .portrait-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+    }
+    nav {
+        padding: 10px;
+    }
+    .landscape-navbar #links,
+    .landscape-navbar #auth {
+        flex-direction: column;
+    }
+}
