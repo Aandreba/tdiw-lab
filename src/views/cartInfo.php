@@ -29,10 +29,6 @@
     document.body.append(invisible_form);
 
     function setCartProdCount(id, count_or_event) {
-        console.log({
-            id,
-            count_or_event
-        })
         if_action.value = "set";
         if_id.valueAsNumber = id;
         if_count.valueAsNumber = (count_or_event instanceof HTMLInputElement) ? count_or_event.valueAsNumber : count_or_event;
