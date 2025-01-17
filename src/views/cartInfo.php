@@ -1,8 +1,8 @@
 <ul id="cartinfo">
     <?php foreach ($cart_items as $entry): ?>
-        <?php 
-        $item = $entry[0]; 
-        $count = $entry[1]; 
+        <?php
+        $item = $entry[0];
+        $count = $entry[1];
         ?>
         <li>
             <span><?= htmlentities($item->name, ENT_QUOTES | ENT_HTML5, 'UTF-8') ?></span>
@@ -21,7 +21,7 @@
     const invisible_form = document.createElement("form");
     invisible_form.style.display = "none";
     invisible_form.method = "post";
-    invisible_form.action = "/lab/?at=cart";
+    invisible_form.action = `${window.location.pathname}?at=cart`;
 
     const if_action = document.createElement("input");
     if_action.type = "text";

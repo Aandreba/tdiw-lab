@@ -2,11 +2,6 @@
 
 require_once __DIR__ . '/../models/user.php';
 
-if (isset($_SESSION["user"])) {
-    header("Location: /");
-    exit;
-}
-
 if (isset($_POST["email"]) && isset($_POST["password"])) {
     try {
         $user = User::SignIn($_POST["email"], $_POST["password"]);
@@ -15,7 +10,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
             $_SESSION["error"] = "Invalid email/password combination";
         } else {
             $_SESSION["user"] = $user->id;
-            header("Location: /");
+            header("Location: /lab");
             exit;
         }
     } catch (Exception $e) {

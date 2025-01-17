@@ -9,7 +9,7 @@
 
 <body>
     <h1>Log In</h1>
-    <form action="/?at=signin" method="post" class="logIn">
+    <form action="<?= $_SERVER["REQUEST_URI"] ?>" method="post" class="logIn">
         <div class="input-wrapper">
             <label for="login-email">Email:</label>
             <input type="email" name="email" required>
