@@ -18,6 +18,9 @@ try {
             case "signin":
                 require __DIR__ . '/resources/signin.php';
                 break;
+            case "signout":
+                require __DIR__ . '/controllers/signout.php';
+                break;
             default:
                 http_response_code(404);
                 echo "Not found";
