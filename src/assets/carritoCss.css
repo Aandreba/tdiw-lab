@@ -82,23 +82,53 @@ button:focus {
 }
 
 button.clear_cart {
-    background-color: #535368;
+    background-color: #7baab3;
     color: white;
-    margin: 10px 0;
+    font-weight: bold;
+    margin: 10px 5px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    max-width: 200px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button.clear_cart:hover {
-    background-color: #383741;
+    background-color: #587175;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
 
 button.submit_cart {
-    background-color: #6189ad;
+    background-color: #2a9d8f;
     color: white;
-    margin: 10px 0;
+    font-weight: bold;
+    margin: 10px 5px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button.submit_cart:hover {
-    background-color: #234f74;
+    background-color: #436460;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -123,6 +153,7 @@ button.submit_cart:hover {
 
     button.clear_cart,
     button.submit_cart {
-        width: 100%;
+        width: calc(50% - 10px); 
+        margin: 10px 5px;
     }
 }

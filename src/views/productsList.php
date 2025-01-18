@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/products.css">
+<link rel="stylesheet" href="assets/products.css?v=1.0">
 
 <div class="products">
     <input type="text" id="search-input" placeholder="Search for a product">

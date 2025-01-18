@@ -15,10 +15,10 @@
     <?php endforeach; ?>
 </ul>
 
-<button onclick="clearCart()">Clear</button>
-<? if (isset($_SESSION["user"])): ?>
-    <button onclick="submitCart()">Submit</button>
-<? endif ?>
+<button class="clear_cart" onclick="clearCart()">Clear</button>
+<?php if (isset($_SESSION["user"])): ?>
+    <button class="submit_cart" onclick="submitCart()">Submit</button>
+<?php endif ?>
 
 <div id="successModal" class="modal">
     <div class="modal-content">

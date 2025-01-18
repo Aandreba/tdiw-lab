@@ -12,7 +12,7 @@
                 <span class="usertag">User</span>
                 <ul class="userpopup">
                     <li>My Account</li>
-                    <li>My orders</li>
+                    <li><a href="?at=orders">My Orders</a></li>
                     <li><a href="?at=signout"><?= t('logout') ?></a></li>
                 </ul>
             </div>
