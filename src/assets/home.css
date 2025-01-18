@@ -4,7 +4,7 @@
 }
 
 .image-container {
-    position: relative; /* Necesario para que el botón se posicione relativo a este contenedor */
+    position: relative; 
     display: inline-block;
 }
 
@@ -15,10 +15,10 @@
 }
 
 .button-container {
-    position: absolute; /* Permite posicionar el botón sobre la imagen */
-    top: 50%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta para que el centro del botón coincida con el centro de la imagen */
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
     z-index: 10;
 }
 
