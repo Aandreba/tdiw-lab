@@ -19,3 +19,12 @@ function CreateOrder(int $userId) {
 
     clearCart();
 }
+
+function GetOrdersList(int $userId, int $offset, int $limit) {
+    $conn = getConnection();
+    $result = pg_query_params($conn, "SELECT id, creation_date FROM orders WHERE orders.user_id = $1 OFFSET $2 LIMIT $3", [$userId, $offset, $limit]);
+    foreach (pg_fetch_all($result) as $order) {
+        $info = pg_query_params($conn, "SELECT products.name AS name, products.description AS description, order_products.quantity AS quantity, order_products.price AS price FROM order_products INNER JOIN products ON products.id = order_products.product_id WHERE order_id = $1", [$order["id"]]);
+        var_dump(pg_fetch_all($info));
+    }
+}
