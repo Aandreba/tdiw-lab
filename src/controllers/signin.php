@@ -20,5 +20,3 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 } else {
     unset($_SESSION["error"]);
 }
-
-include __DIR__ . '/../views/signin.php';
