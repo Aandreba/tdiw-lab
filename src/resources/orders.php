@@ -1,4 +1,11 @@
-<?php require __DIR__ . '/../views/head.php'; ?>
+<?php
+if (!isset($_SESSION["user"])) {
+    header("Location: /lab");
+    exit;
+}
+
+require __DIR__ . '/../views/head.php';
+?>
 
 <body>
     <?php
