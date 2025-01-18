@@ -42,6 +42,7 @@ nav a:hover {
 .landscape-navbar .user {
     position: relative;
     cursor: pointer;
+    right:25px;
 }
 
 .landscape-navbar .userpopup {
@@ -51,7 +52,7 @@ nav a:hover {
     border: 1px solid #ddd;
     border-radius: 5px;
     top: 25px;
-    right: 0;
+    right: 25px;
     list-style: none;
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
