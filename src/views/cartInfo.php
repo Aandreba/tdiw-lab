@@ -99,9 +99,11 @@
     }
 
     function submitCart() {
-        if_action.value = "submit";
-        invisible_form.submit();
-        localStorage.setItem("purchaseComplete", "true");
+        if (window.confirm("Are you sure you want to procede?")) {
+            if_action.value = "submit";
+            invisible_form.submit();
+            localStorage.setItem("purchaseComplete", "true");
+        }
     }
 
     function clearCart() {
