@@ -7,12 +7,8 @@
 
 <nav class="landscape-navbar">
     <div id="links">
-        <a href="?at=categories">
-            <?= t('categories') ?>
-        </a>
-        <a href="?at=products">
-            <?= t('products') ?>
-        </a>
+        <a href="?at=categories"><?= t('categories') ?></a>
+        <a href="/lab/">Home</a>
     </div>
     <div id="auth">
         <?php if (isset($_SESSION["user"])): ?>
@@ -23,26 +19,19 @@
                     <li>My orders</li>
                     <li><a href="?at=signout"><?= t('logout') ?></a></li>
                 </ul>
-            <?php else: ?>
-                <a href="?at=signin">
-                    <?= t('login') ?>
-                </a>
-                <a href="?at=signup">
-                    <?= t('register') ?>
-                </a>
-            <?php endif; ?>
+            </div>
+        <?php else: ?>
+            <a href="?at=signin"><?= t('login') ?></a>
+            <a href="?at=signup"><?= t('register') ?></a>
+        <?php endif; ?>
     </div>
 </nav>
 
 <div class="portrait-navbar">
     <nav id="menu">
         <div id="links">
-            <a href="?at=categories">
-                <?= t('categories') ?>
-            </a>
-            <a href="?at=products">
-                <?= t('products') ?>
-            </a>
+            <a href="?at=categories"><?= t('categories') ?></a>
+            <a href="/lab/">Home</a>
         </div>
         <div id="auth">
             <?php if (isset($_SESSION["user"])): ?>
