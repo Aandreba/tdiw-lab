@@ -27,7 +27,7 @@
 }
 
 .products #products-list .product img {
-    width: 100%;
+    width: 600px;
     height: 500px; 
     object-fit: cover; 
     border-radius: 8px;
@@ -42,7 +42,7 @@
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
-    font-family: "Playfair Display", Georgia, "Times New Roman", serif; /* Fuente más elegante */
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif; 
 
 }
 
