@@ -27,6 +27,47 @@
     <button onclick="submitCart()">Submit</button>
 <? endif ?>
 
+<div id="successModal" class="modal">
+    <div class="modal-content">
+        <p>Purchase completed successfully</p>
+        <button onclick="closeModal()">OK</button>
+    </div>
+</div>
+
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .modal-content p {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    .modal-content button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+</style>
+
 <script>
     const invisible_form = document.createElement("form");
     invisible_form.style.display = "none";
@@ -53,17 +94,33 @@
         invisible_form.submit();
     }
 
+    function showModal() {
+        const modal = document.getElementById("successModal");
+        modal.style.display = "block";
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("successModal");
+        modal.style.display = "none";
+        localStorage.removeItem("purchaseComplete");
+    }
+
     function submitCart() {
-        if (window.confirm("Are you sure you wan't to procede?")) {
-            if_action.value = "submit"
-            invisible_form.submit()
-        }
+        if_action.value = "submit";
+        invisible_form.submit();
+        localStorage.setItem("purchaseComplete", "true");
     }
 
     function clearCart() {
-        if_action.value = "clear"
-        invisible_form.submit()
+        if_action.value = "clear";
+        invisible_form.submit();
     }
+
+    window.addEventListener("load", () => {
+        if (localStorage.getItem("purchaseComplete") === "true") {
+            showModal();
+        }
+    });
 
     for (const elem of document.querySelectorAll("#cartinfo span.price")) {
         elem.textContent = money_fmt.format(parseInt(elem.textContent));
