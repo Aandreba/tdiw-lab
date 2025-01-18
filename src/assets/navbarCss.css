@@ -1,8 +1,8 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+// }
 
 nav {
     font-family: Arial, sans-serif;
@@ -95,6 +95,7 @@ nav a:hover {
 
 .portrait-navbar #menu.open {
     display: none;
+    height: 100%;
     border-top: 1px solid #ddd;
 }
 

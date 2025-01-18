@@ -1,9 +1,11 @@
+<!--
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
-    <link rel="stylesheet" href="assets/carritoCss.css?v=1.0">
 </head>
+-->
+<link rel="stylesheet" href="assets/carritoCss.css?v=1.0">
 
 <ul id="cartinfo">
     <?php foreach ($cart_items as $entry): ?>
