@@ -22,9 +22,19 @@ function CreateOrder(int $userId) {
 
 function GetOrdersList(int $userId, int $offset, int $limit) {
     $conn = getConnection();
-    $result = pg_query_params($conn, "SELECT id, creation_date FROM orders WHERE orders.user_id = $1 OFFSET $2 LIMIT $3", [$userId, $offset, $limit]);
+    $result = pg_query_params($conn, "SELECT id, creation_date FROM orders WHERE orders.user_id = $1 ORDER BY creation_date DESC OFFSET $2 LIMIT $3", [$userId, $offset, $limit]);
+
+    $orders = [];
     foreach (pg_fetch_all($result) as $order) {
-        $info = pg_query_params($conn, "SELECT products.name AS name, products.description AS description, order_products.quantity AS quantity, order_products.price AS price FROM order_products INNER JOIN products ON products.id = order_products.product_id WHERE order_id = $1", [$order["id"]]);
-        var_dump(pg_fetch_all($info));
+        $items = pg_fetch_all(pg_query_params($conn, "SELECT products.name AS name, products.description AS description, order_products.quantity AS quantity, order_products.price AS price FROM order_products INNER JOIN products ON products.id = order_products.product_id WHERE order_id = $1", [$order["id"]]));
+
+        $total = 0;
+        foreach ($items as $item) {
+            $total += $item["quantity"] * $item["price"];
+        }
+
+        array_push($orders, ["items" => $items, "total" => $total, "creation_date" => $order["creation_date"]]);
     }
+
+    return $orders;
 }

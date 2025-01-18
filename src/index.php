@@ -12,6 +12,9 @@ try {
             case "cart":
                 require __DIR__ . '/resources/cart.php';
                 break;
+            case "orders":
+                require __DIR__ . '/resources/orders.php';
+                break;
             case "signup":
                 require __DIR__ . '/resources/signup.php';
                 break;

@@ -54,8 +54,10 @@
     }
 
     function submitCart() {
-        if_action.value = "submit"
-        invisible_form.submit()
+        if (window.confirm("Are you sure you wan't to procede?")) {
+            if_action.value = "submit"
+            invisible_form.submit()
+        }
     }
 
     function clearCart() {
