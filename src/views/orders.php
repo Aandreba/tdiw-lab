@@ -1,3 +1,6 @@
+
+<link rel="stylesheet" href="assets/orders.css?v=1.0">
+
 <? foreach ($orders as $order): ?>
     <div>
         <span><?= $order["creation_date"] ?></span>

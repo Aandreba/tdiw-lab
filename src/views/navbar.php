@@ -1,9 +1,3 @@
-<!--
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
--->
 <link rel="stylesheet" href="assets/navbarCss.css?v=1.0">
 
 <nav class="landscape-navbar">

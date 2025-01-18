@@ -1,10 +1,3 @@
-<!--
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-</head>
--->
 <link rel="stylesheet" href="assets/carritoCss.css?v=1.0">
 
 <ul id="cartinfo">
