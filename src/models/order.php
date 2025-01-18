@@ -27,7 +27,6 @@ function GetOrdersList(int $userId, int $offset, int $limit) {
     $orders = [];
     foreach (pg_fetch_all($result) as $order) {
         $items = pg_fetch_all(pg_query_params($conn, "SELECT products.name AS name, products.description AS description, order_products.quantity AS quantity, order_products.price AS price FROM order_products INNER JOIN products ON products.id = order_products.product_id WHERE order_products.order_id = $1::int", [intval($order["id"])]));
-        var_dump($items);
 
         $total = 0;
         foreach ($items as $item) {
