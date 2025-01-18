@@ -8,8 +8,9 @@
 
 <nav class="landscape-navbar">
     <div id="links">
+        <a href="?">Home</a>
         <a href="?at=categories"><?= t('categories') ?></a>
-        <a href="/lab/">Home</a>
+        <a href="?at=cart">Cart</a>
     </div>
     <div id="auth">
         <?php if (isset($_SESSION["user"])): ?>
@@ -31,8 +32,9 @@
 <div class="portrait-navbar">
     <nav id="menu">
         <div id="links">
+            <a href="?">Home</a>
             <a href="?at=categories"><?= t('categories') ?></a>
-            <a href="/lab/">Home</a>
+            <a href="?at=cart">Cart</a>
         </div>
         <div id="auth">
             <?php if (isset($_SESSION["user"])): ?>
