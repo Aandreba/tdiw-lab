@@ -1,13 +1,15 @@
 <link rel="stylesheet" href="assets/orders.css?v=1.0">
 
-<? foreach ($orders as $order): ?>
+<?php foreach ($orders as $key => $order): ?>
+    
     <div>
         <span><?= $order["creation_date"] ?></span>
         <span><?= round($order["total"] / 100, 2) ?>€</span>
         <ul>
-            <? foreach ($order["items"] as $item): ?>
+            <?php foreach ($order["items"] as $item): ?>
                 <li><?= $item["name"] ?> - <?= $item["quantity"] ?> x <?= round(intval($item["price"]) / 100, 2) ?>€</li>
-            <? endforeach ?>
+            <?php endforeach; ?>
         </ul>
     </div>
-<? endforeach ?>
+<?php endforeach; ?>
+
