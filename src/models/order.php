@@ -34,7 +34,7 @@ function GetOrdersList(int $userId, int $offset, int $limit) {
             $total += intval($item["quantity"]) * intval($item["price"]);
         }
 
-        array_push($orders, ["items" => $items, "total" => $total, "creation_date" => $order["creation_date"]]);
+        $orders[] = ["items" => $items, "total" => $total, "creation_date" => $order["creation_date"]];
     }
 
     return $orders;
